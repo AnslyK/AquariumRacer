@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://asset/level/roadTexture.png" type="Texture" id=1]
-[ext_resource path="res://scenes/aquarium/aquarium.tscn" type="PackedScene" id=2]
+[ext_resource path="res://asset/aquarium/aquarium.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -58,7 +58,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="aquarium" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 5, 0 )
-
-[node name="Camera2" type="Camera" parent="aquarium"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 32.8593, 54.508 )
