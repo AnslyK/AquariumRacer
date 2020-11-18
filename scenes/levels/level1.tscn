@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+[gd_scene load_steps=8 format=2]
+=======
 [gd_scene load_steps=9 format=2]
+>>>>>>> 2147bd98bf14cffe9d45ea76a8cdcbf57a32a19a
 
 [ext_resource path="res://asset/level/roadTexture.png" type="Texture" id=1]
 [ext_resource path="res://asset/aquarium/aquarium.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/Road.gd" type="Script" id=3]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -23,6 +28,7 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 [node name="level1" type="Spatial"]
 
 [node name="Road" type="StaticBody" parent="."]
+script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Road"]
 transform = Transform( 600, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
@@ -33,6 +39,28 @@ material/0 = SubResource( 2 )
 transform = Transform( 600, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 shape = SubResource( 3 )
 
+<<<<<<< HEAD
+[node name="Left wall2" type="StaticBody" parent="Road"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Road/Left wall2"]
+transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 1, 20 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Left wall" type="StaticBody" parent="Road"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Road/Left wall"]
+transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -20 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="aquarium" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.2, 0 )
+
+[node name="Camera" type="Camera" parent="aquarium"]
+transform = Transform( -8.14603e-07, 1.7101, -4.69846, 0, 4.69846, 1.7101, 5, 2.78611e-07, -7.65477e-07, -100, 43.368, 0 )
+fov = 78.1
+=======
 [node name="aquarium" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 
@@ -61,3 +89,4 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Left wall2"]
 transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 1, 100 )
 shape = SubResource( 6 )
+>>>>>>> 2147bd98bf14cffe9d45ea76a8cdcbf57a32a19a
