@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-[gd_scene load_steps=8 format=2]
-=======
-[gd_scene load_steps=9 format=2]
->>>>>>> 2147bd98bf14cffe9d45ea76a8cdcbf57a32a19a
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://asset/level/roadTexture.png" type="Texture" id=1]
-[ext_resource path="res://asset/aquarium/aquarium.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/Road.gd" type="Script" id=3]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -25,9 +20,17 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 [sub_resource type="ConvexPolygonShape" id=6]
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="CylinderMesh" id=8]
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
 [node name="level1" type="Spatial"]
 
-[node name="Road" type="StaticBody" parent="."]
+[node name="Road" type="RigidBody" parent="."]
+linear_velocity = Vector3( 100, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Road"]
@@ -39,54 +42,49 @@ material/0 = SubResource( 2 )
 transform = Transform( 600, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 shape = SubResource( 3 )
 
-<<<<<<< HEAD
-[node name="Left wall2" type="StaticBody" parent="Road"]
-
-[node name="MeshInstance" type="MeshInstance" parent="Road/Left wall2"]
-transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 1, 20 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="Left wall" type="StaticBody" parent="Road"]
+[node name="Left wall" type="RigidBody" parent="Road"]
 
 [node name="MeshInstance" type="MeshInstance" parent="Road/Left wall"]
-transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -20 )
-mesh = SubResource( 4 )
-material/0 = null
-
-[node name="aquarium" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.2, 0 )
-
-[node name="Camera" type="Camera" parent="aquarium"]
-transform = Transform( -8.14603e-07, 1.7101, -4.69846, 0, 4.69846, 1.7101, 5, 2.78611e-07, -7.65477e-07, -100, 43.368, 0 )
-fov = 78.1
-=======
-[node name="aquarium" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
-
-[node name="Camera" type="Camera" parent="aquarium"]
-transform = Transform( -1.60825e-07, -0.159864, 0.987139, -2.60451e-08, 0.987139, 0.159864, -1, 0, -1.62921e-07, 60.6314, 31.0569, 0 )
-far = 600.0
-
-[node name="Left wall" type="StaticBody" parent="."]
-
-[node name="MeshInstance" type="MeshInstance" parent="Left wall"]
 transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -100 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Left wall"]
+[node name="CollisionShape" type="CollisionShape" parent="Road/Left wall"]
 transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -100 )
 shape = SubResource( 5 )
 
-[node name="Left wall2" type="StaticBody" parent="."]
+[node name="Left wall2" type="RigidBody" parent="Road"]
 
-[node name="MeshInstance" type="MeshInstance" parent="Left wall2"]
+[node name="MeshInstance" type="MeshInstance" parent="Road/Left wall2"]
 transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 1, 100 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Left wall2"]
+[node name="CollisionShape" type="CollisionShape" parent="Road/Left wall2"]
 transform = Transform( 600, 0, 0, 0, 10, 0, 0, 0, 1, 0, 1, 100 )
 shape = SubResource( 6 )
->>>>>>> 2147bd98bf14cffe9d45ea76a8cdcbf57a32a19a
+
+[node name="player" type="RigidBody" parent="."]
+
+[node name="corp" type="MeshInstance" parent="player"]
+transform = Transform( 20, 0, 0, 0, 10.8, 0, 0, 0, 10.8, 0, 15.3636, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Roue2" type="MeshInstance" parent="player"]
+transform = Transform( 5, 0, 0, 0, -6.99382e-07, -5, 0, 16, -2.18557e-07, -12.0462, 8, 0 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Roue" type="MeshInstance" parent="player"]
+transform = Transform( 5, 0, 0, 0, -6.99382e-07, -5, 0, 16, -2.18557e-07, 11, 8, 0 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="player"]
+transform = Transform( 20, 0, 0, 0, 10.8, 0, 0, 0, 10.8, 0, 15.3636, 0 )
+shape = SubResource( 9 )
+
+[node name="Camera" type="Camera" parent="player"]
+transform = Transform( -1.60092e-07, -0.185529, 0.982639, -3.02266e-08, 0.982639, 0.185529, -1, 0, -1.62921e-07, 48.6011, 33.6848, 0.577107 )
+far = 600.0

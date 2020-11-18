@@ -1,4 +1,4 @@
-extends StaticBody
+extends RigidBody
 
 
 # Declare member variables here. Examples:
@@ -11,7 +11,10 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	transform.origin.x#func start(speed):
+	#transform.origin.x = 10
+	pass
+	
+	#func start(speed):
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
