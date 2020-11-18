@@ -36,6 +36,10 @@ shape = SubResource( 3 )
 [node name="aquarium" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 
+[node name="Camera" type="Camera" parent="aquarium"]
+transform = Transform( -1.60825e-07, -0.159864, 0.987139, -2.60451e-08, 0.987139, 0.159864, -1, 0, -1.62921e-07, 60.6314, 31.0569, 0 )
+far = 600.0
+
 [node name="Left wall" type="StaticBody" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="Left wall"]
