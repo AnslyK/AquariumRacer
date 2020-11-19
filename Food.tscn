@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://71WVuprfRIL.png" type="Texture" id=1]
+[ext_resource path="res://Food.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Spin"
+length = 3.0
+loop = true
+step = 0.98
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 18.0463 )
+
+[node name="Food" type="Area2D"]
+position = Vector2( 152.628, 112.155 )
+rotation = 1.47443
+scale = Vector2( 2.57585, 2.57585 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Spin"
+anims/Spin = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.0176709, 0.0176709 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
