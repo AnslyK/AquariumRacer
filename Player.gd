@@ -36,7 +36,7 @@ func _process(delta):
 func _on_Player_body_entered(body):
 	if !immune:
 		emit_signal("hit")
-		#$AnimationPlayer.play("clignotement")
+		$AnimationPlayer.play("clignotement")
 	#$CollisionShape2D.set_deferred("disabled", true)
 	
 func setImmunity(hit):
