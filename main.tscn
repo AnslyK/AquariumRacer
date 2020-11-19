@@ -32,5 +32,5 @@ curve = SubResource( 1 )
 
 [node name="SharkPositionSpawn" type="PathFollow2D" parent="SharkPath"]
 position = Vector2( -0.0150433, -0.0230856 )
-rotation = 1.30156e-05
+rotation = 1.30152e-05
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
