@@ -10,7 +10,7 @@ var speed
 
 func _ready():
 	randomize()
-	new_game()
+	#new_game()
 
 func _on_player_hit():
 	life -= 1
