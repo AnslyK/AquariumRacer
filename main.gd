@@ -1,9 +1,11 @@
 extends Node
 
 export (PackedScene) var Shark
+export (PackedScene) var Food
 var rand = RandomNumberGenerator.new()
 var score
 var life
+var speed
 
 func _ready():
 	randomize()
@@ -21,13 +23,9 @@ func game_over():
 func new_game():
 	life = 5
 	score = 0
+	speed = 300
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-
-func _on_player_eat():
-	if life < 5:
-		life += 1
-
 
 func _on_SharkTimer_timeout():
 	var shark = Shark.instance()
@@ -46,3 +44,17 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$SharkTimer.start()
 	$ScoreTimer.start()
+	$FoodTimer.start()
+
+
+func _on_Player_eat(area):
+	if life < 5:
+		life += 1
+
+
+func _on_FoodTimer_timeout():
+	var food = Food.instance()
+	food.position.y = 2
+	food.position.x = randi() % 1024
+	
+	add_child(food)

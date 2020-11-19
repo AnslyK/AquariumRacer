@@ -10,7 +10,11 @@ export var speed = 200
 func _ready():
 	pass # Replace with function body.
 
-
+func _process(delta):
+	var velocity = Vector2()
+	velocity.y += 1
+	velocity = velocity.normalized() * speed
+	position += velocity * delta
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
