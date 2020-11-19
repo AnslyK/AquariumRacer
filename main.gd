@@ -5,6 +5,7 @@ export (PackedScene) var Food
 var rand = RandomNumberGenerator.new()
 var score
 var life
+const totalLife = 5
 var speed
 
 func _ready():
@@ -13,15 +14,18 @@ func _ready():
 
 func _on_player_hit():
 	life -= 1
-	if life <= 1:
+	print(str("life: ",life))
+	if life <= 0:
+		print("game over")
 		game_over()
 
 func game_over():
 	$ScoreTimer.stop()
 	$SharkTimer.stop()
+	$FoodTimer.stop()
 
 func new_game():
-	life = 5
+	life = totalLife
 	score = 0
 	speed = 300
 	$Player.start($StartPosition.position)
@@ -48,8 +52,10 @@ func _on_StartTimer_timeout():
 
 
 func _on_Player_eat(area):
-	if life < 5:
+	if life < totalLife:
 		life += 1
+	print(str("eat Life :", life))
+	area.free()
 
 
 func _on_FoodTimer_timeout():
