@@ -95,10 +95,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true ]
+"values": [ false, true, false, true, false, true ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -119,6 +119,7 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="Area2D"]
+visible = false
 position = Vector2( 512, 550 )
 script = ExtResource( 3 )
 __meta__ = {
