@@ -28,7 +28,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FoodTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 512, 530 )

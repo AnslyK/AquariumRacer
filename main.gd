@@ -35,7 +35,9 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
+	$HUD/HealthBar._on_max_health_updated(life)
 	$HUD/HealthBar/HealthOver.value = life
+	print(str($HUD/HealthBar/HealthOver.value))
 	$HUD/HealthBar.visible = true
 	$StartTimer.start()
 
@@ -51,7 +53,6 @@ func _on_SharkTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	score += 1
-	$HUD.show_game_over()
 
 
 func _on_StartTimer_timeout():
