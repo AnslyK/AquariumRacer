@@ -38,7 +38,7 @@ curve = SubResource( 1 )
 
 [node name="SharkPositionSpawn" type="PathFollow2D" parent="SharkPath"]
 position = Vector2( -0.0150433, -0.0230856 )
-rotation = 1.30156e-05
+rotation = 1.30152e-05
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_eat"]
@@ -47,4 +47,5 @@ rotation = 1.30156e-05
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_FoodTimer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
+
+[editable path="HUD"]
