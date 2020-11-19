@@ -14,15 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func update_score(score):
-	pass
-
-func show_message(message):
-	pass
-
-
-func show_game_over():
-	pass
 
 func show_message(text):
 	$Message.text = text
@@ -42,7 +33,6 @@ func show_game_over():
 
 func update_score(score):
 	#$ScoreLabel.text = str(score)
-	
 	pass
 
 func _on_StartButton_pressed():
