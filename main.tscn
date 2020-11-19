@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -0.0150433, -0.0230856, 0, 0, 0, 0, 1024, -0.00975752 )
+"points": PoolVector2Array( 0, 0, 0, 0, -0.0150433, -0.0230856, 0, 0, 0, 0, 1024, -0.00975752, 0, 0, 0, 0, 1022, 601, 0, 0, 0, 0, -0.996796, 600.068, 0, 0, 0, 0, 0.417419, 0.441071 )
 }
 
 [node name="main" type="Node"]
@@ -34,3 +34,6 @@ curve = SubResource( 1 )
 position = Vector2( -0.0150433, -0.0230856 )
 rotation = 1.30156e-05
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="SharkTimer" to="." method="_on_SharkTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
