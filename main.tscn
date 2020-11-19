@@ -41,6 +41,7 @@ position = Vector2( -0.0150433, -0.0230856 )
 rotation = 1.30152e-05
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+[connection signal="change_life" from="." to="HUD" method="_on_health_updated"]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_eat"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="SharkTimer" to="." method="_on_SharkTimer_timeout"]

@@ -35,8 +35,6 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
-	$HUD/HealthBar._on_max_health_updated(life)
-	$HUD/HealthBar/HealthOver.value = life
 	print(str($HUD/HealthBar/HealthOver.value))
 	$HUD/HealthBar.visible = true
 	$StartTimer.start()
