@@ -24,6 +24,7 @@ func game_over():
 	$SharkTimer.stop()
 	$FoodTimer.stop()
 	$HUD.show_game_over()
+	$Player.visible = false
 
 func new_game():
 	life = totalLife

@@ -4,6 +4,7 @@ signal hit
 
 export var speed = 400  # How fast the player will move (pixels/sec).
 var screen_size  # Size of the game window.
+var immune = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,10 +34,15 @@ func _process(delta):
 
 
 func _on_Player_body_entered(body):
-	emit_signal("hit")
+	if !immune:
+		emit_signal("hit")
+		$AnimationPlayer.play("clignotement")
 	#$CollisionShape2D.set_deferred("disabled", true)
 	
-	
+func setImmunity(hit):
+	immune = hit
+
+
 func start(pos):
 	position = pos
 	show()
