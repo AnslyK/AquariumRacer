@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal health_updated
 signal start_game
 # Declare member variables here. Examples:
 # var a = 2
@@ -14,16 +15,26 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func update_score(score):
-	pass
 
-func show_message(message):
-	pass
-
+func show_message(text):
+	$Message.text = text
+	$Message.show()
+	$MessageTimer.start()
 
 func show_game_over():
-	pass
+	show_message("Game Over")
+	# Wait until the MessageTimer has counted down.
+	yield($MessageTimer, "timeout")
 
+	$Message.text = "Fish Survivor"
+	$Message.show()
+	# Make a one-shot timer and wait for it to finish.
+	yield(get_tree().create_timer(1), "timeout")
+	$StartButton.show()
+
+func update_score(score):
+	#$ScoreLabel.text = str(score)
+	pass
 
 func _on_StartButton_pressed():
 	$StartButton.hide()
@@ -32,3 +43,8 @@ func _on_StartButton_pressed():
 
 func _on_MessageTimer_timeout():
 	$Message.hide()
+
+
+func _on_health_updated(life, amount):
+	print("on_health_updated")
+	emit_signal("health_updated", life, amount)

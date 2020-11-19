@@ -1,5 +1,7 @@
 extends Node
 
+signal change_life
+
 export (PackedScene) var Shark
 export (PackedScene) var Food
 var rand = RandomNumberGenerator.new()
@@ -10,10 +12,10 @@ var speed
 
 func _ready():
 	randomize()
-	#new_game()
 
 func _on_player_hit():
 	life -= 1
+	emit_signal("change_life", life, -1)
 	print(str("life: ",life))
 	if life <= 0:
 		print("game over")
@@ -33,6 +35,8 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
+	print(str($HUD/HealthBar/HealthOver.value))
+	$HUD/HealthBar.visible = true
 	$StartTimer.start()
 
 func _on_SharkTimer_timeout():
@@ -47,7 +51,6 @@ func _on_SharkTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	score += 1
-	$HUD.show_game_over()
 
 
 func _on_StartTimer_timeout():
@@ -59,6 +62,7 @@ func _on_StartTimer_timeout():
 func _on_Player_eat(area):
 	if life < totalLife:
 		life += 1
+		emit_signal("change_life", life, +1)
 	print(str("eat Life :", life))
 	area.free()
 

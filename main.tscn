@@ -23,12 +23,13 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FoodTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 512, 530 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+[connection signal="change_life" from="." to="HUD" method="_on_health_updated"]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_eat"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="SharkTimer" to="." method="_on_SharkTimer_timeout"]
@@ -36,3 +37,5 @@ position = Vector2( 512, 530 )
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_FoodTimer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+
+[editable path="HUD"]
