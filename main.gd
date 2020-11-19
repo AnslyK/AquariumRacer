@@ -23,12 +23,15 @@ func game_over():
 	$ScoreTimer.stop()
 	$SharkTimer.stop()
 	$FoodTimer.stop()
+	$HUD.show_game_over()
 
 func new_game():
 	life = totalLife
 	score = 0
 	speed = 300
 	$Player.start($StartPosition.position)
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
 	$StartTimer.start()
 
 func _on_SharkTimer_timeout():
@@ -43,6 +46,7 @@ func _on_SharkTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	score += 1
+	$HUD.show_game_over()
 
 
 func _on_StartTimer_timeout():
