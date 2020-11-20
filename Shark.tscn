@@ -22,7 +22,6 @@ height = 0.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 position = Vector2( 473.762, -46.669 )
-scale = Vector2( 1.5, 1.5 )
 collision_mask = 2147483648
 gravity_scale = 0.0
 script = ExtResource( 2 )
@@ -31,13 +30,13 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
 animation = "Right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.717285, 1.69861 )
-scale = Vector2( 0.5, 0.24 )
+scale = Vector2( 0.75, 0.38 )
 shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
