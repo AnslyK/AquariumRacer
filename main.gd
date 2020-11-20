@@ -4,6 +4,8 @@ signal change_life
 
 export (PackedScene) var Shark
 export (PackedScene) var Food
+export (PackedScene) var SeaWeed
+
 var rand = RandomNumberGenerator.new()
 var score
 var life
@@ -25,6 +27,7 @@ func game_over():
 	$ScoreTimer.stop()
 	$SharkTimer.stop()
 	$FoodTimer.stop()
+	$SeaWeedTimer.stop()
 	$HUD.show_game_over()
 	$Player.visible = false
 
@@ -47,11 +50,11 @@ func _on_SharkTimer_timeout():
 	add_child(shark)
 	
 	if score < 50:
-		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed)
-	elif score >= 50 && score < 100:
 		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 2
-	elif score >= 100 && score < 150:
+	elif score >= 50 && score < 100:
 		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 3
+	elif score >= 100 && score < 150:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed)
 	elif score >= 150 && score < 200:
 		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 4
 	else:
@@ -67,6 +70,7 @@ func _on_StartTimer_timeout():
 	$SharkTimer.start()
 	$ScoreTimer.start()
 	$FoodTimer.start()
+	$SeaWeedTimer.start()
 
 
 func _on_Player_eat(area):
@@ -87,3 +91,11 @@ func _on_FoodTimer_timeout():
 	food.position.x = randi() % 1024
 	
 	add_child(food)
+
+
+func _on_SeaWeedTimer_timeout():
+	var seaWeed = SeaWeed.instance()
+	seaWeed.position.y = -2
+	seaWeed.position.x = randi() % 1024
+	
+	add_child(seaWeed)

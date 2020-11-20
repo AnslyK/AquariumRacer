@@ -26,6 +26,7 @@ extents = Vector2( 10, 18.0463 )
 
 [node name="Food" type="Area2D"]
 position = Vector2( 152.628, 112.155 )
+rotation = 2.05251
 scale = Vector2( 2.57585, 2.57585 )
 script = ExtResource( 2 )
 
