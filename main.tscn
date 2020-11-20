@@ -21,7 +21,6 @@ Food = ExtResource( 4 )
 
 [node name="SharkTimer" type="Timer" parent="."]
 wait_time = 0.5
-script = ExtResource( 6 )
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -38,7 +37,7 @@ position = Vector2( 512, 530 )
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
 
-[node name="Scorelabel" type="Label" parent="HUD"]
+[node name="ScoreLabel" type="Label" parent="HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -22.5
