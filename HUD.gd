@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-signal health_updated
 signal start_game
 # Declare member variables here. Examples:
 # var a = 2
@@ -45,6 +44,3 @@ func _on_MessageTimer_timeout():
 	$Message.hide()
 
 
-func _on_health_updated(life, amount):
-	print("on_health_updated")
-	emit_signal("health_updated", life, amount)

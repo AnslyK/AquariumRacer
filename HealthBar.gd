@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var health_over = $Healthover
+onready var health_over = $HealthOver
 onready var health_under = $HealthUnder
 onready var update_tween = $Tween
 
