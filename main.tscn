@@ -21,6 +21,7 @@ Food = ExtResource( 4 )
 
 [node name="SharkTimer" type="Timer" parent="."]
 wait_time = 0.5
+script = ExtResource( 6 )
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -29,7 +30,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FoodTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.0
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( 512, 530 )

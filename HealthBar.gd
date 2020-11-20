@@ -1,9 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var health_over = $HealthOver
 onready var health_under = $HealthUnder
 onready var update_tween = $Tween
@@ -17,8 +14,3 @@ func _on_max_health_updated(max_health):
 	print("_on_max_health_updated")
 	health_over.max_value = max_health
 	health_under.max_value = max_health
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

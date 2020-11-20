@@ -51,6 +51,7 @@ func _on_SharkTimer_timeout():
 
 func _on_ScoreTimer_timeout():
 	score += 1
+	$HUD.update_score(score)
 
 
 func _on_StartTimer_timeout():
@@ -62,8 +63,12 @@ func _on_StartTimer_timeout():
 func _on_Player_eat(area):
 	if life < totalLife:
 		life += 1
+		score += 3
 		emit_signal("change_life", life, +1)
+	else:
+		score += 10
 	print(str("eat Life :", life))
+	$HUD.update_score(score)
 	area.free()
 
 
