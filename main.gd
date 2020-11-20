@@ -46,7 +46,16 @@ func _on_SharkTimer_timeout():
 	
 	add_child(shark)
 	
-	shark.linear_velocity.y = 500
+	if score < 50:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed)
+	elif score >= 50 && score < 100:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 2
+	elif score >= 100 && score < 150:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 3
+	elif score >= 150 && score < 200:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 4
+	else:
+		shark.linear_velocity.y = rand_range(shark.min_speed, shark.max_speed) * 8
 
 
 func _on_ScoreTimer_timeout():
