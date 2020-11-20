@@ -7,6 +7,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	$AnimatedSeaWeed.animation = "default"
 	var velocity = Vector2()
 	velocity.y += 1
 	velocity = velocity.normalized() * speed

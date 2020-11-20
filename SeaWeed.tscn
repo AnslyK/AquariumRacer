@@ -102,8 +102,10 @@ animations = [ {
 position = Vector2( 233.609, 128.367 )
 script = ExtResource( 2 )
 
-[node name="SeaWeed" type="AnimatedSprite" parent="."]
+[node name="AnimatedSeaWeed" type="AnimatedSprite" parent="."]
 frames = SubResource( 17 )
+frame = 6
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 18 )
