@@ -2,9 +2,6 @@ extends CanvasLayer
 
 signal health_updated
 signal start_game
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,8 +30,8 @@ func show_game_over():
 	$StartButton.show()
 
 func update_score(score):
-	#$ScoreLabel.text = str(score)
-	pass
+	$ScoreLabel.text = str(score)
+	#pass
 
 func _on_StartButton_pressed():
 	$StartButton.hide()
