@@ -3,7 +3,7 @@ extends Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_timer()
+	new_timer(1)
 
 func new_timer(time):
 	var value
